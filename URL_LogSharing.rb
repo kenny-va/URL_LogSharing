@@ -5,7 +5,7 @@ require 'uri'
 
 
 if ARGV[0].nil?
-    filename = './data-ios/urlLogSharing_2.txt'
+    filename = './data-ios/urlLogSharing.txt'
 else
     filename = ARGV[0]
 end
@@ -30,13 +30,13 @@ File.open(filename) do |f|       #LOOP THROUGH THE FILE TO PROCESS SPECIFIC LINE
     f.each do |line|
 
         if line.include? 'analytics.localytics.com'
-            hf_loc.write(line.slice(26,500))
+            hf_loc.write(line.slice(26,line.length-26))
         elsif line.include? 'gannett.demdex.net' or line.include? 'repdata.usatoday.com'
-            hf_omn.write(line.slice(26,500))
+            hf_omn.write(line.slice(26,line.length-26))
         elsif line.include? 'pubads.g.doubleclick.net'
-            hf_ads.write(line.slice(26,500))
+            hf_ads.write(line.slice(26,line.length-26))
         elsif line.include? 'sb.scorecardresearch.com'
-            hf_com.write(line.slice(26,500))
+            hf_com.write(line.slice(26,line.length-26))
         end
 
     end #each file record
