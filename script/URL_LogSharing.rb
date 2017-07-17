@@ -260,9 +260,9 @@ while !baseline_omniture_file.eof? and !new_omniture_file.eof?
                 else  # Field names are different.  Something whonky happened.
 
                     puts 'Base values: ' + base_values.to_s
-                    puts ' '
+                    puts '  '
                     puts 'New values: ' + new_values.to_s
-                    puts ' '
+                    puts '  '
                     break
                 end
             rescue
